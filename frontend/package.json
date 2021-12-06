@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./styles.css -o ../24Days.Web/assets/styles.css --watch",
-    "build": "npx tailwindcss -i ./styles.css -o ../24Days.Web/assets/styles.css --minify"
+    "dev": "npx tailwindcss -i ./styles.css -o ../24Days.Web/wwwroot/assets/styles.css --watch",
+    "build": "npx tailwindcss -i ./styles.css -o ../24Days.Web/wwwroot/assets/styles.css --minify"
   },
   "author": "",
   "license": "MIT",
