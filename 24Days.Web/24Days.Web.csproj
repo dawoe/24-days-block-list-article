@@ -6,6 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Our.Umbraco.Community.Contentment" Version="3.0.1" />
+        <PackageReference Include="Our.Umbraco.Community.Contentment.Core" Version="3.0.1" />
         <PackageReference Include="Umbraco.Cms" Version="9.1.1" />
         <PackageReference Include="Umbraco.Cms.SqlCe" Version="9.1.1" />
         <PackageReference Include="Umbraco.SqlServerCE" Version="4.0.0.1" />
