@@ -15,6 +15,7 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
         <PackageReference Include="uSync" Version="9.0.4" />
+        <ProjectReference Include="..\24Days.Core\24Days.Core.csproj" />
         <ProjectReference Include="..\24Days.Models\24Days.Models.csproj" />
         <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2" />
     </ItemGroup>
