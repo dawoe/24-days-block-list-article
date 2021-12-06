@@ -1,0 +1,17 @@
+{
+  "name": "24days.frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./styles.css -o ../24Days.Web/assets/styles.css --watch",
+    "build": "npx tailwindcss -i ./styles.css -o ../24Days.Web/assets/styles.css --minify"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^2.2.19"
+  }
+}

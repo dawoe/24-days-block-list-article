@@ -3,3 +3,5 @@
 24Days.Models/obj/
 24Days.Models/bin/
 24Days.Web/App_Plugins/uSync/
+frontend/node_modules/
+24Days.Web/assets/
