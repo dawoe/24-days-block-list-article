@@ -1,0 +1,1 @@
+24Days.Web/wwwroot/media/**/* filter=lfs diff=lfs merge=lfs -text
