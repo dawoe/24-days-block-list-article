@@ -6,6 +6,16 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Content Include="App_Plugins\BlockListViews\Blocks\block-preview.html" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="App_Plugins\BlockListViews\Blocks\block-preview.controller.js" />
+      <None Include="App_Plugins\BlockListViews\package.manifest" />
+      <None Include="App_Plugins\BlockListViews\resources\preview.resource.js" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Umbraco.Cms" Version="9.1.2" />
         <PackageReference Include="Umbraco.Cms.Core" Version="9.1.2" />
         <PackageReference Include="Umbraco.Cms.SqlCe" Version="9.1.2" />
