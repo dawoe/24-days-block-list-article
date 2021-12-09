@@ -1,0 +1,49 @@
+﻿@using _Days.Models.Content
+@using System.Linq;
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem<FrequentlyAskedQuestionsBlock>>
+
+@{
+    var faqItems = new List<FrequentlyAskedQuestion>();
+
+    var dataFolder = UmbracoContext.Content.GetAtRoot().FirstOrDefault(x => x.IsDocumentType(DataFolder.ModelTypeAlias));
+
+    if (dataFolder != null)
+    {
+        foreach (var faqFolder in dataFolder.Children<FrequentlyAskedQuestionFolder>())
+        {
+            faqItems.AddRange(faqFolder.Children<FrequentlyAskedQuestion>());
+        }
+    }
+}
+
+@if (faqItems.Any())
+{
+    <section>
+        <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+            
+            @if (!string.IsNullOrEmpty(Model.Content.Title))
+            {
+                <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-3">@Model.Content.Title</h2>
+            }
+
+            <ul class="space-y-8">
+                @foreach (var item in faqItems)
+                {
+                    <li>
+                        <details open>
+                            <summary class="text-xl font-medium">
+                                <span>
+                                    @item.Question
+                                </span>
+                            </summary>
+
+                            <p class="p-4 mt-4 text-lg border-4 border-black">
+                                @Html.ReplaceLineBreaks(item.Answer)
+                            </p>
+                        </details>
+                    </li>
+                }
+            </ul>
+        </div>
+    </section>
+}
