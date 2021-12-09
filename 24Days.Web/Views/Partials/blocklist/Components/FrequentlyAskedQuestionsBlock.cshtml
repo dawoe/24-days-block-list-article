@@ -30,14 +30,14 @@
                 @foreach (var item in faqItems)
                 {
                     <li>
-                        <details open>
+                        <details class="p-8 bg-gray-100 rounded-lg">
                             <summary class="text-xl font-medium">
                                 <span>
                                     @item.Question
                                 </span>
                             </summary>
 
-                            <p class="p-4 mt-4 text-lg border-4 border-black">
+                            <p class="mt-4">
                                 @Html.ReplaceLineBreaks(item.Answer)
                             </p>
                         </details>
