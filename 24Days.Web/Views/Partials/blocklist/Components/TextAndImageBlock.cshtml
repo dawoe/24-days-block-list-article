@@ -7,7 +7,7 @@
 }
 <section>
     <div class="px-4 py-16 mx-auto max-w-screen-xl sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 @(image != null ? "lg:grid-cols-2" : "")  gap-y-8 gap-x-16 lg:h-screen lg:items-center">
+        <div class="grid grid-cols-1 @(image != null ? "lg:grid-cols-2" : "")  gap-y-8 gap-x-16 lg:items-center">
             <div class="@(image != null ? "max-w-lg" : "") mx-auto text-center lg:text-left lg:py-24 grid-colum @(Model.Content.ImagePostion == ImageLayoutOptions.Left ? "col-start-2" : "")">
                 @if (!string.IsNullOrEmpty(Model.Content.Title))
                 {
@@ -26,7 +26,7 @@
             
             @if (image != null)
             {
-                <div class="relative h-64 sm:h-96 lg:h-full @(Model.Content.ImagePostion == ImageLayoutOptions.Left ? "col-start-1 row-start-1" : "")">
+                <div class="relative h-64 sm:h-96 lg:h-[32rem] @(Model.Content.ImagePostion == ImageLayoutOptions.Left ? "col-start-1 row-start-1" : "")">
                     
                     <picture >
                         <source srcset="@Url.GetCropUrl(image.LocalCrops, "desktop", useCropDimensions: true)" media="(min-width:1024px)"/>

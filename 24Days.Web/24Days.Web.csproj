@@ -11,6 +11,7 @@
 
     <ItemGroup>
       <None Include="App_Plugins\BlockListViews\Blocks\block-preview.controller.js" />
+      <None Include="App_Plugins\BlockListViews\directives\published-check.directive.js" />
       <None Include="App_Plugins\BlockListViews\package.manifest" />
       <None Include="App_Plugins\BlockListViews\resources\preview.resource.js" />
     </ItemGroup>
