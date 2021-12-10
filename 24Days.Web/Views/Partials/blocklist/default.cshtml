@@ -1,4 +1,6 @@
+@using _24Days.Core.Services
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListModel>
+@inject IBlockPublicationCheckService publicationCheckService;
 @{
     if (!Model.Any()) { return; }
 }
@@ -8,6 +10,12 @@
         if (block?.ContentUdi == null) { continue; }
         var data = block.Content;
 
-        @await Html.PartialAsync("blocklist/Components/" + data.ContentType.Alias, block)
+        var isBlockPublished = publicationCheckService.IsBlockPublished(block);
+        
+        if (isBlockPublished)
+        {
+            @await Html.PartialAsync("blocklist/Components/" + data.ContentType.Alias, block)
+        }
+
     }
 </div>
