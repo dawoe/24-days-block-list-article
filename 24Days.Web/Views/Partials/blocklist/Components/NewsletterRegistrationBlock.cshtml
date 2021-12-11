@@ -1,6 +1,6 @@
 ﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem<_Days.Models.Content.NewsletterRegistrationBlock>>
 
-<aside class="p-12 bg-gradient-to-r from-[20274e] to-[e6c2bd] rounded-xl sm:p-16 lg:p-24">
+<aside class="p-12 bg-gradient-to-r from-[#20274e] to-[#e6c2bd] rounded-xl sm:p-16 lg:p-24">
     <div class="max-w-xl mx-auto text-center">
         
         @if (!string.IsNullOrWhiteSpace(Model.Content.Tagline))
@@ -27,7 +27,7 @@
 
             <button
                 type="submit"
-                class="flex items-center justify-between w-full px-5 py-3 mt-4 font-medium text-white bg-blue-600 rounded-lg sm:w-auto sm:mt-0 sm:ml-4 hover:bg-blue-500">
+                class="flex items-center justify-between w-full px-5 py-3 mt-4 font-medium text-[#e6c2bd] bg-[#20274e] rounded-lg sm:w-auto sm:mt-0 sm:ml-4 hover:bg-[#e6c2bd] hover:text-[#20274e]">
                 @(!string.IsNullOrWhiteSpace(Model.Content.ButtonText) ? Model.Content.ButtonText : "Sign up" )
 
                 <svg
