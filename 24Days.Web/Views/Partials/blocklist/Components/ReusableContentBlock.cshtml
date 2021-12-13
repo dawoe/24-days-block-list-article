@@ -1,0 +1,30 @@
+﻿@using Umbraco.Cms.Core.Composing
+@using Umbraco.Cms.Core.Models.Blocks
+@using Umbraco.Cms.Core
+@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem<_Days.Models.Content.ReusableContentBlock>>
+@inject ITypeFinder _typeFinder
+@inject IPublishedValueFallback _publishedValueFallback
+@{
+    var blockContent = Model.Content.Block;
+}
+@if (blockContent != null)
+{
+    // we assume the picked content is always composed of one document type, so we get the first composition alias
+    var compositionAlias = blockContent.ContentType.CompositionAliases.FirstOrDefault();
+
+    // get the models builder type based on composition alias
+    // so this is the type of the strongly typed model of the composition document type.
+    var compositionType = _typeFinder.FindClassesWithAttribute<PublishedModelAttribute>().SingleOrDefault(x => x.GetCustomAttribute<PublishedModelAttribute>(false).ContentTypeAlias == compositionAlias);
+
+    // create instance of the composition type using the picked content
+    var compositionInstance = Activator.CreateInstance(compositionType, blockContent, _publishedValueFallback);
+
+    // get a generic block list item type based on the composition type
+    var blockListItemType = typeof(BlockListItem<>).MakeGenericType(compositionType);
+
+    // create instance of the block list item
+    var blockListItem = (BlockListItem)Activator.CreateInstance(blockListItemType, new GuidUdi("document", blockContent.Key), compositionInstance, null, null);
+
+    // and render it using the same view as normally.
+    @await Html.PartialAsync("blocklist/Components/" + compositionAlias, blockListItem)
+}   
