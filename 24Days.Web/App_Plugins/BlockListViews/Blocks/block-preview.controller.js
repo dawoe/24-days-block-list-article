@@ -6,10 +6,11 @@ angular.module('umbraco').controller('TwentyFourDays.Controllers.BlockPreviewCon
       }).language.culture;
 
       $scope.id = editorState.getCurrent().id;
-      $scope.loading = true;
+        $scope.loading = true;
+        $scope.markup = $sce.trustAsHtml('Loading preview');
       
       function loadPreview(blockData) {
-        $scope.markup = '';
+        $scope.markup = $sce.trustAsHtml('Loading preview');
         $scope.loading = true;
 
         previewResource.getPreview(blockData, $scope.id, $scope.language).then(function (data) {
