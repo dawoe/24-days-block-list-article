@@ -3,7 +3,7 @@ angular.module('umbraco').controller('TwentyFourDays.Controllers.BlockPreviewCon
     function ($scope,$sce, $timeout, editorState, previewResource) {
       $scope.language = editorState.getCurrent().variants.find(function (v) {
         return v.active;
-      }).language.culture;
+      }).language?.culture;
 
       $scope.id = editorState.getCurrent().id;
         $scope.loading = true;
